@@ -1,8 +1,10 @@
 #include "ofApp.h"
 #include "Paddle.h"
+#include "Ball.h"
 
-using namespace paddle;
+using namespace pong;
     Paddle mainPaddle = Paddle(100, 20, 40, 300);
+    Ball mainBall = Ball(5);
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -12,20 +14,22 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    mainBall.move(3,3);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofDrawBox(mainPaddle.get_xpos(), mainPaddle.get_ypos(), 0, mainPaddle.get_width(), mainPaddle.get_height(), 0);
+    ofDrawBox(mainBall.get_xpos(), mainBall.get_ypos(), 0, mainBall.get_radius());
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     int upper_key = toupper(key);
-    if (upper_key == 'W') {
+    if (upper_key == OF_KEY_UP) {
         mainPaddle.moveY(-20);
     }
-    if (upper_key == 'S') {
+    if (upper_key == OF_KEY_DOWN) {
         mainPaddle.moveY(20);
     }
 }

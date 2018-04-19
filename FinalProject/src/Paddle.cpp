@@ -7,7 +7,7 @@
 
 #include "Paddle.h"
 
-using namespace paddle;
+using namespace pong;
 
 Paddle::Paddle() {
     height = 40;

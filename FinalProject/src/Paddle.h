@@ -8,7 +8,7 @@
 #ifndef Paddle_h
 #define Paddle_h
 
-namespace paddle {
+namespace pong {
 
     class Paddle {
         int height;
