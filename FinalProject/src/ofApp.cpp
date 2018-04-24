@@ -4,7 +4,7 @@
 
 using namespace pong;
     Paddle mainPaddle = Paddle(100, 20, 40, 300);
-    Ball mainBall = Ball(5);
+    Ball mainBall = Ball(20);
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -14,7 +14,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    mainBall.move(3,3);
+    mainBall.move();
 }
 
 //--------------------------------------------------------------

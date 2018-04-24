@@ -14,11 +14,15 @@ namespace pong {
         int radius;
         int xpos;
         int ypos;
+        int xvel;
+        int yvel;
     public:
         Ball(int r);
-        void move(int xchange, int ychange);
+        void move();
         int get_xpos() const;
         int get_ypos() const;
+        int get_xvel() const;
+        int get_yvel() const;
         int get_radius() const;
     };
 
