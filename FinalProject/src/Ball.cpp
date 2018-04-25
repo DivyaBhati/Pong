@@ -7,54 +7,50 @@
 
 #include <stdio.h>
 #include "Ball.h"
+#include "Paddle.h"
 
 using namespace pong;
 
-Ball::Ball(int r) {
-    radius = r;
+Ball::Ball() {
+    radius = 20;
     xpos = 640;
     ypos = 360;
     yvel = 5;
-    xvel = 5;
+    xvel = -5;
 };
 
-int Ball::get_xpos() const {
+int Ball::get_xpos() {
     return xpos;
 };
 
-int Ball::get_ypos() const {
+int Ball::get_ypos() {
     return ypos;
 };
 
-int Ball::get_radius() const {
+int Ball::get_radius() {
     return radius;
 };
 
-int Ball::get_xvel() const {
+int Ball::get_xvel() {
     return xvel;
 };
 
-int Ball::get_yvel() const {
+int Ball::get_yvel() {
     return yvel;
 };
 
-void Ball::move() {
-    xpos += xvel;
-    ypos += yvel;
-    if (ypos <= 0) {
-        ypos = 0;
-        yvel = -yvel;
-    }
-    if (ypos >= 720) {
-        ypos = 720;
-        yvel = -yvel;
-    }
-    if (xpos <= 60) {
-        xpos = 60;
-        xvel = -xvel;
-    }
-    if (xpos >= 1220) {
-        xpos = 1220;
-        xvel = -xvel;
-    }
-}
+void Ball::set_xpos(int newx) {
+    xpos = newx;
+};
+
+void Ball::set_ypos(int newy) {
+    ypos = newy;
+};
+
+void Ball::set_xvel(int new_xvel) {
+    xvel = new_xvel;
+};
+
+void Ball::set_yvel(int new_yvel) {
+    yvel = new_yvel;
+};

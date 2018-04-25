@@ -18,11 +18,11 @@ namespace pong {
     public:
         Paddle();
         Paddle(int h, int w, int x, int y);
-        int get_height() const;
-        int get_width() const;
-        int get_xpos() const;
-        int get_ypos() const;
-        void moveY(int dist);
+        int get_height();
+        int get_width();
+        int get_xpos();
+        int get_ypos();
+        void set_ypos(int newpos);
     };
 }
 

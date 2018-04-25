@@ -1,6 +1,11 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Paddle.h"
+#include "Ball.h"
+#include "Game.h"
+
+using namespace pong;
 
 class ofApp : public ofBaseApp{
 

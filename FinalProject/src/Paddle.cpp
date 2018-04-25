@@ -4,7 +4,7 @@
 //
 //  Created by Divya Bhati on 4/19/18.
 //
-
+#include <stdio.h>
 #include "Paddle.h"
 
 using namespace pong;
@@ -23,28 +23,23 @@ Paddle::Paddle(int h, int w, int x, int y){
     ypos = y;
 };
 
-int Paddle::get_height() const {
+int Paddle::get_height() {
     return height;
 };
 
-int Paddle::get_width() const {
+int Paddle::get_width() {
     return width;
 };
 
-int Paddle::get_xpos() const {
+int Paddle::get_xpos() {
     return xpos;
 };
 
-int Paddle::get_ypos() const {
+int Paddle::get_ypos() {
     return ypos;
 };
 
-void Paddle::moveY(int dist) {
-    ypos += dist;
-    if (ypos < (height / 2)) {
-        ypos = height / 2;
-    }
-    if (ypos > 720 - (height / 2)) {
-        ypos = 720 - (height / 2);
-    }
+void Paddle::set_ypos(int newpos) {
+    ypos = newpos;
 };
+

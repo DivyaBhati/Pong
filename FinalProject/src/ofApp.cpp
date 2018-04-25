@@ -1,36 +1,46 @@
 #include "ofApp.h"
 #include "Paddle.h"
 #include "Ball.h"
+#include "Game.h"
 
 using namespace pong;
-    Paddle mainPaddle = Paddle(100, 20, 40, 300);
-    Ball mainBall = Ball(20);
+
+Paddle game_play1 = Paddle(100, 20, 40, 300);
+Paddle game_play2 = Paddle(100, 20, 1240, 300);
+Ball game_mainBall = Ball();
+Game mainGame = Game(game_play1, game_play2, game_mainBall);
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    x = 0;
     ofSetWindowTitle("PONG");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    mainBall.move();
+    mainGame.move_mainBall();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofDrawBox(mainPaddle.get_xpos(), mainPaddle.get_ypos(), 0, mainPaddle.get_width(), mainPaddle.get_height(), 0);
-    ofDrawBox(mainBall.get_xpos(), mainBall.get_ypos(), 0, mainBall.get_radius());
+    ofDrawBox(mainGame.get_play1().get_xpos(), mainGame.get_play1().get_ypos(), 0, mainGame.get_play1().get_width(), mainGame.get_play1().get_height(), 0);
+    ofDrawBox(mainGame.get_play2().get_xpos(), mainGame.get_play2().get_ypos(), 0, mainGame.get_play2().get_width(), mainGame.get_play2().get_height(), 0);
+    ofDrawBox(mainGame.get_mainBall().get_xpos(), mainGame.get_mainBall().get_ypos(), 0, mainGame.get_mainBall().get_radius());
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     int upper_key = toupper(key);
     if (upper_key == OF_KEY_UP) {
-        mainPaddle.moveY(-20);
+        mainGame.move_play2(-30);
     }
     if (upper_key == OF_KEY_DOWN) {
-        mainPaddle.moveY(20);
+        mainGame.move_play2(30);
+    }
+    if (upper_key == 'W') {
+        mainGame.move_play1(-30);
+    }
+    if (upper_key == 'S') {
+        mainGame.move_play1(30);
     }
 }
 

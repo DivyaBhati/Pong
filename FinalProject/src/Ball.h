@@ -17,13 +17,17 @@ namespace pong {
         int xvel;
         int yvel;
     public:
-        Ball(int r);
+        Ball();
         void move();
-        int get_xpos() const;
-        int get_ypos() const;
-        int get_xvel() const;
-        int get_yvel() const;
-        int get_radius() const;
+        int get_xpos();
+        int get_ypos();
+        int get_xvel();
+        int get_yvel();
+        int get_radius();
+        void set_xpos(int newx);
+        void set_ypos(int newy);
+        void set_xvel(int new_xvel);
+        void set_yvel(int new_yvel);
     };
 
 }
