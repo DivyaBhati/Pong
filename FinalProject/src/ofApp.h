@@ -9,9 +9,17 @@ using namespace pong;
 
 class ofApp : public ofBaseApp{
 
+    enum GameState {
+        IN_PROGRESS,
+        PAUSED,
+        FINISHED,
+        HIGHSCORE,
+        SETUP
+    };
+
 	public:
     int x;
-    
+    GameState current_state = IN_PROGRESS;
 		void setup();
 		void update();
 		void draw();

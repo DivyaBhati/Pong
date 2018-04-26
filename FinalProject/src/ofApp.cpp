@@ -18,29 +18,56 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     mainGame.move_mainBall();
+    if (mainGame.get_game_over()) {
+        current_state = FINISHED;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    if (current_state == IN_PROGRESS) {
+        ofSetColor(100, 100, 100);
+        ofDrawBox(640, 360, 0, 6, 720, 0);
+        ofSetColor(0, 255, 0);
     ofDrawBox(mainGame.get_play1().get_xpos(), mainGame.get_play1().get_ypos(), 0, mainGame.get_play1().get_width(), mainGame.get_play1().get_height(), 0);
+        ofSetColor(255, 102, 255);
     ofDrawBox(mainGame.get_play2().get_xpos(), mainGame.get_play2().get_ypos(), 0, mainGame.get_play2().get_width(), mainGame.get_play2().get_height(), 0);
-    ofDrawBox(mainGame.get_mainBall().get_xpos(), mainGame.get_mainBall().get_ypos(), 0, mainGame.get_mainBall().get_radius());
+        ofSetColor(255, 255, 255);
+    ofDrawBox(mainGame.get_mainBall().get_xpos(), mainGame.get_mainBall().get_ypos(), 0, mainGame.get_mainBall().get_radius(), mainGame.get_mainBall().get_radius(), 0);
+    
+    }
+    else if (current_state == FINISHED) {
+        ofSetColor(255, 255, 255);
+        ofDrawBitmapString("GAME OVER", 600, 360);
+        ofDrawBitmapString("PRESS 'R' TO RESTART", 555, 390);
+        ofDrawBitmapString("Player 1 Score: " + std::to_string(mainGame.get_p1_score()), 555, 420);
+        ofDrawBitmapString("Player 2 Score: " + std::to_string(mainGame.get_p2_score()), 555, 450);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     int upper_key = toupper(key);
-    if (upper_key == OF_KEY_UP) {
-        mainGame.move_play2(-30);
+    if (current_state == IN_PROGRESS) {
+        if (upper_key == OF_KEY_UP) {
+            mainGame.move_play2(-40);
+        }
+        if (upper_key == OF_KEY_DOWN) {
+            mainGame.move_play2(40);
+        }
+        if (upper_key == 'W') {
+            mainGame.move_play1(-40);
+        }
+        if (upper_key == 'S') {
+            mainGame.move_play1(40);
+        }
     }
-    if (upper_key == OF_KEY_DOWN) {
-        mainGame.move_play2(30);
-    }
-    if (upper_key == 'W') {
-        mainGame.move_play1(-30);
-    }
-    if (upper_key == 'S') {
-        mainGame.move_play1(30);
+    else if (current_state == FINISHED) {
+        if (upper_key == 'R') {
+            mainGame.set_game_over(false);
+            mainGame.restart();
+            current_state = IN_PROGRESS;
+        }
     }
 }
 
