@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include "Game.h"
+#include <cstdlib>
 
 using namespace pong;
 
@@ -44,8 +45,20 @@ void Game::restart() {
     mainBall.set_xpos(640);
     mainBall.set_ypos(360);
     game_tick = 0;
-    mainBall.set_xvel(5);
-    mainBall.set_yvel(-5);
+    
+    //Set random x and y velocities when restarting
+    int rand_int1 = rand() % 2;
+    int rand_int2 = rand() % 2;
+    if (rand_int1 == 0) {
+        mainBall.set_xvel(5);
+    } else {
+        mainBall.set_xvel(-5);
+    }
+    if (rand_int2 == 0) {
+        mainBall.set_yvel(5);
+    } else {
+        mainBall.set_yvel(-5);
+    }
 };
 
 int Game::get_p1_score() {
@@ -102,8 +115,10 @@ void Game::move_mainBall() {
     if (mainBall.get_xpos() <= 60) {
         if (mainBall.get_ypos() <= bottomy1 && mainBall.get_ypos() >= topy1) {
             mainBall.set_xpos(60);
-            if (game_tick % 4 == 0) {
+            if (game_tick % 7 == 0) {
                 mainBall.set_xvel(1.2 * (0 - mainBall.get_xvel()));
+            } else if (game_tick % 6 == 0) {
+                mainBall.set_yvel(1.3 * mainBall.get_yvel());
             } else {
                 mainBall.set_xvel(0 - mainBall.get_xvel());
             }
@@ -113,8 +128,10 @@ void Game::move_mainBall() {
     else if (mainBall.get_xpos() >= 1220) {
         if (mainBall.get_ypos() <= bottomy2 && mainBall.get_ypos() >= topy2) {
             mainBall.set_xpos(1220);
-            if (game_tick % 4 == 0) {
+            if (game_tick % 7 == 0) {
                 mainBall.set_xvel(1.2 * (0 - mainBall.get_xvel()));
+            } else if (game_tick % 6 == 0) {
+                mainBall.set_yvel(1.3 * mainBall.get_yvel());
             } else {
                 mainBall.set_xvel(0 - mainBall.get_xvel());
             }
@@ -127,7 +144,7 @@ void Game::move_mainBall() {
         return;
     }
     if (mainBall.get_xpos() >= 1280) {
-        p1_score += 2;
+        p1_score += 1;
         game_over = true;
         return;
     }

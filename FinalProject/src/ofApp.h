@@ -10,20 +10,21 @@ using namespace pong;
 class ofApp : public ofBaseApp{
 
     enum GameState {
-        IN_PROGRESS,
+        TWO_PLAYER,
+        ONE_PLAYER,
         PAUSED,
         FINISHED,
-        HIGHSCORE,
         SETUP
     };
 
 	public:
-    int x;
-    GameState current_state = IN_PROGRESS;
-		void setup();
-		void update();
-		void draw();
-
+        int x;
+    GameState current_state;
+    GameState selected_state;
+        void setup();
+        void update();
+        void draw();
+    
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
