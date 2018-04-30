@@ -4,7 +4,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Game.h"
-//#include "ofxTrueTypeFontUC.h"
+#include "ofxTrueTypeFontUC.h"
 
 using namespace pong;
 
@@ -31,7 +31,7 @@ class ofApp : public ofBaseApp{
         GameState current_state;
         GameState selected_state;
         ColorScheme game_colors;
-        //ofxTrueTypeFontUC myFont;
+        ofxTrueTypeFontUC myFont;
     
         void setup();
         void update();
