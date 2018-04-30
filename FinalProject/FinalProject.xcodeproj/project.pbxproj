@@ -50,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		8B06C8F320976C2E0016D8B1 /* DrawMethods.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DrawMethods.cpp; sourceTree = "<group>"; };
-		8B06C8F6209778810016D8B1 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		8B06C8F7209778810016D8B1 /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
 		8B06C8FA209778810016D8B1 /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
 		8B06C8FB209778810016D8B1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		8B06C8F5209778810016D8B1 /* ofxTrueTypeFontUC */ = {
 			isa = PBXGroup;
 			children = (
-				8B06C8F6209778810016D8B1 /* install.xml */,
 				8B06C8F7209778810016D8B1 /* ofxaddons_thumbnail.png */,
 				8B06C8F8209778810016D8B1 /* example */,
 				8B06C8FD209778810016D8B1 /* README.md */,
