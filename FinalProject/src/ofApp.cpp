@@ -2,6 +2,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Game.h"
+#include "ofxTrueTypeFontUC.h"
 
 using namespace pong;
 

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8B06C8F420976C2E0016D8B1 /* DrawMethods.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B06C8F320976C2E0016D8B1 /* DrawMethods.cpp */; };
+		8B06C902209778810016D8B1 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B06C8FA209778810016D8B1 /* testApp.cpp */; };
+		8B06C903209778810016D8B1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B06C8FB209778810016D8B1 /* main.cpp */; };
+		8B06C904209778810016D8B1 /* ofxTrueTypeFontUC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B06C901209778810016D8B1 /* ofxTrueTypeFontUC.cpp */; };
 		8B3CBEF5208908C500C074C4 /* Paddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CBEF3208908C500C074C4 /* Paddle.cpp */; };
 		8B3CBEFA2089153500C074C4 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CBEF92089153500C074C4 /* Ball.cpp */; };
 		8BE18452208FAC180011E6C1 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BE18451208FAC180011E6C1 /* Game.cpp */; };
@@ -47,6 +50,15 @@
 
 /* Begin PBXFileReference section */
 		8B06C8F320976C2E0016D8B1 /* DrawMethods.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DrawMethods.cpp; sourceTree = "<group>"; };
+		8B06C8F6209778810016D8B1 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
+		8B06C8F7209778810016D8B1 /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
+		8B06C8FA209778810016D8B1 /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
+		8B06C8FB209778810016D8B1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8B06C8FC209778810016D8B1 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
+		8B06C8FD209778810016D8B1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8B06C8FE209778810016D8B1 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		8B06C900209778810016D8B1 /* ofxTrueTypeFontUC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTrueTypeFontUC.h; sourceTree = "<group>"; };
+		8B06C901209778810016D8B1 /* ofxTrueTypeFontUC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTrueTypeFontUC.cpp; sourceTree = "<group>"; };
 		8B3CBEF3208908C500C074C4 /* Paddle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Paddle.cpp; sourceTree = "<group>"; };
 		8B3CBEF620890AA200C074C4 /* Paddle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
 		8B3CBEF82089152400C074C4 /* Ball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
@@ -82,9 +94,50 @@
 			name = local_addons;
 			sourceTree = "<group>";
 		};
+		8B06C8F5209778810016D8B1 /* ofxTrueTypeFontUC */ = {
+			isa = PBXGroup;
+			children = (
+				8B06C8F6209778810016D8B1 /* install.xml */,
+				8B06C8F7209778810016D8B1 /* ofxaddons_thumbnail.png */,
+				8B06C8F8209778810016D8B1 /* example */,
+				8B06C8FD209778810016D8B1 /* README.md */,
+				8B06C8FE209778810016D8B1 /* License.txt */,
+				8B06C8FF209778810016D8B1 /* src */,
+			);
+			path = ofxTrueTypeFontUC;
+			sourceTree = "<group>";
+		};
+		8B06C8F8209778810016D8B1 /* example */ = {
+			isa = PBXGroup;
+			children = (
+				8B06C8F9209778810016D8B1 /* src */,
+			);
+			path = example;
+			sourceTree = "<group>";
+		};
+		8B06C8F9209778810016D8B1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8B06C8FA209778810016D8B1 /* testApp.cpp */,
+				8B06C8FB209778810016D8B1 /* main.cpp */,
+				8B06C8FC209778810016D8B1 /* testApp.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		8B06C8FF209778810016D8B1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8B06C900209778810016D8B1 /* ofxTrueTypeFontUC.h */,
+				8B06C901209778810016D8B1 /* ofxTrueTypeFontUC.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				8B06C8F5209778810016D8B1 /* ofxTrueTypeFontUC */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -225,10 +278,13 @@
 			files = (
 				8B3CBEFA2089153500C074C4 /* Ball.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				8B06C902209778810016D8B1 /* testApp.cpp in Sources */,
 				8B06C8F420976C2E0016D8B1 /* DrawMethods.cpp in Sources */,
 				8B3CBEF5208908C500C074C4 /* Paddle.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				8B06C903209778810016D8B1 /* main.cpp in Sources */,
 				8BE18452208FAC180011E6C1 /* Game.cpp in Sources */,
+				8B06C904209778810016D8B1 /* ofxTrueTypeFontUC.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
