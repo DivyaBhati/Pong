@@ -32,6 +32,9 @@ class ofApp : public ofBaseApp{
         GameState selected_state;
         ColorScheme game_colors;
         ofxTrueTypeFontUC myFont;
+        ofxTrueTypeFontUC infoFont;
+        ofxTrueTypeFontUC largeFont;
+
     
         void setup();
         void update();
@@ -49,9 +52,13 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    void drawClassic(Paddle player1, Paddle player2, Ball gameBall);
-    void drawLight(Paddle player1, Paddle player2, Ball gameBall);
-    void drawNeon(Paddle player1, Paddle player2, Ball gameBall);
-    void drawPink(Paddle player1, Paddle player2, Ball gameBall);
+    void drawClassic(Paddle player1, Paddle player2, Ball gameBall, int score1, int score2);
+    void drawLight(Paddle player1, Paddle player2, Ball gameBall, int score1, int score2);
+    void drawNeon(Paddle player1, Paddle player2, Ball gameBall, int score1, int score2);
+    void drawPink(Paddle player1, Paddle player2, Ball gameBall, int score1, int score2);
+    void finishedClassic(int score1, int score2);
+    void finishedLight(int score1, int score2);
+    void finishedNeon(int score1, int score2);
+    void finishedPink(int score1, int score2);
 		
 };

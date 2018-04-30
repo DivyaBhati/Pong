@@ -15,7 +15,9 @@ Game mainGame = Game(game_play1, game_play2, game_mainBall);
 void ofApp::setup(){
     ofSetWindowTitle("PONG");
     current_state = PLAYER_SETUP;
-    myFont.loadFont("GamePlay.ttf", 64, true, true);
+    myFont.loadFont("GamePlay.ttf", 36, true, true);
+    infoFont.loadFont("GamePlay.ttf", 24, true, true);
+    largeFont.loadFont("GamePlay.ttf", 48, true, true);
 }
 
 //--------------------------------------------------------------
@@ -48,29 +50,46 @@ void ofApp::draw(){
     //thursday 2pm 3405
     
     if (current_state == TWO_PLAYER || current_state == ONE_PLAYER) {
+        int s1 = mainGame.get_p1_score();
+        int s2 = mainGame.get_p2_score();
         if (game_colors == CLASSIC) {
-            drawClassic(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+            drawClassic(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall(), s1, s2);
         } else if (game_colors == LIGHT) {
-            drawLight(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+            drawLight(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall(), s1, s2);
         } else if (game_colors == NEON) {
-            drawNeon(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+            drawNeon(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall(), s1, s2);
         } else if (game_colors == PINK) {
-            drawPink(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+            drawPink(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall(), s1, s2);
         }
     }
     else if (current_state == FINISHED) {
-        ofSetColor(255, 255, 255);
-        ofDrawBitmapString("GAME OVER", 600, 360);
-        ofDrawBitmapString("PRESS 'R' TO RESTART", 555, 390);
-        ofDrawBitmapString("Player 1 Score: " + std::to_string(mainGame.get_p1_score()), 555, 420);
-        ofDrawBitmapString("Player 2 Score: " + std::to_string(mainGame.get_p2_score()), 555, 450);
+        if (game_colors == CLASSIC) {
+            finishedClassic(mainGame.get_p1_score(), mainGame.get_p2_score());
+        } else if (game_colors == LIGHT) {
+            finishedLight(mainGame.get_p1_score(), mainGame.get_p2_score());
+        } else if (game_colors == NEON) {
+            finishedNeon(mainGame.get_p1_score(), mainGame.get_p2_score());
+        } else if (game_colors == PINK) {
+            finishedPink(mainGame.get_p1_score(), mainGame.get_p2_score());
+        }
     }
     else if (current_state == PLAYER_SETUP) {
+        ofSetBackgroundColor(0, 0, 0);
         ofSetColor(255, 255, 255);
-        myFont.drawString("Press '1' or '2' to choose gamemode!", 545, 390);
+        myFont.drawString("Choose the number of players:", 130, 360);
+        myFont.drawString("1", 350, 650);
+        myFont.drawString("2", 900, 650);
     }
     else if (current_state == COLOR_SETUP) {
-        ofDrawBitmapString("Choose a color scheme!", 545, 390);
+        myFont.drawString("Choose a color scheme:", 250, 160);
+        myFont.drawString("1", 160, 650);
+        myFont.drawString("2", 460, 650);
+        myFont.drawString("3", 760, 650);
+        myFont.drawString("4", 1060, 650);
+        infoFont.drawString("Classic", 93, 350);
+        infoFont.drawString("Light", 430, 350);
+        infoFont.drawString("Neon", 730, 350);
+        infoFont.drawString("Pink", 1035, 350);
     }
 }
 
@@ -104,6 +123,10 @@ void ofApp::keyPressed(int key){
             mainGame.set_game_over(false);
             mainGame.restart();
             current_state = selected_state;
+        }
+        if (upper_key == 'Q') {
+            mainGame = Game(game_play1, game_play2, game_mainBall);
+            current_state = PLAYER_SETUP;
         }
     }
     else if (current_state == PLAYER_SETUP) {
