@@ -14,13 +14,22 @@ class ofApp : public ofBaseApp{
         ONE_PLAYER,
         PAUSED,
         FINISHED,
-        SETUP
+        PLAYER_SETUP,
+        COLOR_SETUP
     };
 
+    enum ColorScheme {
+        CLASSIC,
+        LIGHT,
+        NEON,
+        PINK
+    };
+    
 	public:
         int x;
-    GameState current_state;
-    GameState selected_state;
+        GameState current_state;
+        GameState selected_state;
+        ColorScheme game_colors;
         void setup();
         void update();
         void draw();
@@ -36,5 +45,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+    
+    void drawClassic(Paddle player1, Paddle player2, Ball gameBall);
+    void drawLight(Paddle player1, Paddle player2, Ball gameBall);
+    void drawNeon(Paddle player1, Paddle player2, Ball gameBall);
+    void drawPink(Paddle player1, Paddle player2, Ball gameBall);
 		
 };

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B06C8F420976C2E0016D8B1 /* DrawMethods.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B06C8F320976C2E0016D8B1 /* DrawMethods.cpp */; };
 		8B3CBEF5208908C500C074C4 /* Paddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CBEF3208908C500C074C4 /* Paddle.cpp */; };
 		8B3CBEFA2089153500C074C4 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CBEF92089153500C074C4 /* Ball.cpp */; };
 		8BE18452208FAC180011E6C1 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BE18451208FAC180011E6C1 /* Game.cpp */; };
@@ -45,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B06C8F320976C2E0016D8B1 /* DrawMethods.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DrawMethods.cpp; sourceTree = "<group>"; };
 		8B3CBEF3208908C500C074C4 /* Paddle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Paddle.cpp; sourceTree = "<group>"; };
 		8B3CBEF620890AA200C074C4 /* Paddle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
 		8B3CBEF82089152400C074C4 /* Ball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				8B06C8F320976C2E0016D8B1 /* DrawMethods.cpp */,
 				8B3CBEF3208908C500C074C4 /* Paddle.cpp */,
 				8BE18454208FAE0A0011E6C1 /* Game.h */,
 				8B3CBEF620890AA200C074C4 /* Paddle.h */,
@@ -222,6 +225,7 @@
 			files = (
 				8B3CBEFA2089153500C074C4 /* Ball.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				8B06C8F420976C2E0016D8B1 /* DrawMethods.cpp in Sources */,
 				8B3CBEF5208908C500C074C4 /* Paddle.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				8BE18452208FAC180011E6C1 /* Game.cpp in Sources */,

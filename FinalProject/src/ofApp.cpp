@@ -13,12 +13,14 @@ Game mainGame = Game(game_play1, game_play2, game_mainBall);
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetWindowTitle("PONG");
-    current_state = SETUP;
+    current_state = PLAYER_SETUP;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    mainGame.move_mainBall();
+    if (current_state == ONE_PLAYER || current_state == TWO_PLAYER) {
+        mainGame.move_mainBall();
+    }
     if (mainGame.get_game_over()) {
         current_state = FINISHED;
     }
@@ -44,15 +46,15 @@ void ofApp::draw(){
     //thursday 2pm 3405
     
     if (current_state == TWO_PLAYER || current_state == ONE_PLAYER) {
-        ofSetColor(100, 100, 100);
-        ofDrawBox(640, 360, 0, 6, 720, 0);
-        ofSetColor(0, 255, 0);
-    ofDrawBox(mainGame.get_play1().get_xpos(), mainGame.get_play1().get_ypos(), 0, mainGame.get_play1().get_width(), mainGame.get_play1().get_height(), 0);
-        ofSetColor(255, 102, 255);
-    ofDrawBox(mainGame.get_play2().get_xpos(), mainGame.get_play2().get_ypos(), 0, mainGame.get_play2().get_width(), mainGame.get_play2().get_height(), 0);
-        ofSetColor(255, 255, 255);
-    ofDrawBox(mainGame.get_mainBall().get_xpos(), mainGame.get_mainBall().get_ypos(), 0, mainGame.get_mainBall().get_radius(), mainGame.get_mainBall().get_radius(), 0);
-    
+        if (game_colors == CLASSIC) {
+            drawClassic(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+        } else if (game_colors == LIGHT) {
+            drawLight(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+        } else if (game_colors == NEON) {
+            drawNeon(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+        } else if (game_colors == PINK) {
+            drawPink(mainGame.get_play1(), mainGame.get_play2(), mainGame.get_mainBall());
+        }
     }
     else if (current_state == FINISHED) {
         ofSetColor(255, 255, 255);
@@ -61,8 +63,11 @@ void ofApp::draw(){
         ofDrawBitmapString("Player 1 Score: " + std::to_string(mainGame.get_p1_score()), 555, 420);
         ofDrawBitmapString("Player 2 Score: " + std::to_string(mainGame.get_p2_score()), 555, 450);
     }
-    else if (current_state == SETUP) {
+    else if (current_state == PLAYER_SETUP) {
         ofDrawBitmapString("Press '1' or '2' to choose gamemode!", 545, 390);
+    }
+    else if (current_state == COLOR_SETUP) {
+        ofDrawBitmapString("Choose a color scheme!", 545, 390);
     }
 }
 
@@ -98,18 +103,40 @@ void ofApp::keyPressed(int key){
             current_state = selected_state;
         }
     }
-    else if (current_state == SETUP) {
-        if (upper_key == '2') {
-            mainGame.set_game_over(false);
-            mainGame.restart();
-            current_state = TWO_PLAYER;
-            current_state = TWO_PLAYER;
-        }
+    else if (current_state == PLAYER_SETUP) {
         if (upper_key == '1') {
+            current_state = COLOR_SETUP;
+            selected_state = ONE_PLAYER;
+        }
+        if (upper_key == '2') {
+            current_state = COLOR_SETUP;
+            selected_state = TWO_PLAYER;
+        }
+    }
+    else if (current_state == COLOR_SETUP) {
+        if (upper_key == '1') {
+            game_colors = CLASSIC;
+            current_state = selected_state;
             mainGame.set_game_over(false);
             mainGame.restart();
-            current_state = ONE_PLAYER;
-            selected_state = ONE_PLAYER;
+        }
+        if (upper_key == '2') {
+            game_colors = LIGHT;
+            current_state = selected_state;
+            mainGame.set_game_over(false);
+            mainGame.restart();
+        }
+        if (upper_key == '3') {
+            game_colors = NEON;
+            current_state = selected_state;
+            mainGame.set_game_over(false);
+            mainGame.restart();
+        }
+        if (upper_key == '4') {
+            game_colors = PINK;
+            current_state = selected_state;
+            mainGame.set_game_over(false);
+            mainGame.restart();
         }
     }
 }
