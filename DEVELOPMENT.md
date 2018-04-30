@@ -6,3 +6,6 @@ Made a second paddle object and created a game class.  Planning on moving the mo
 
 **Wednesday, April 25th**
 Successfully created new Game object.  Game now runs two player Pong.  Need to make intro screen, score screen, and a CPU.
+
+**Saturday, April 28th**
+Added a start screen where user can choose between one or two players.  Also made game get increasingly difficult as each round progresses.  Game also keeps track of the scores and shows it at the end of each round.  Need to add custom fonts next.
