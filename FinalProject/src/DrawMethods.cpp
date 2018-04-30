@@ -7,9 +7,10 @@
 
 #include <stdio.h>
 #include "ofApp.h"
-#include "ofxTrueTypeFontUC.h"
+//#include "ofxTrueTypeFontUC.h"
 
 using namespace pong;
+
 
 void ofApp::drawNeon(Paddle player1, Paddle player2, Ball gameBall) {
     ofSetBackgroundColor(0, 0, 0);

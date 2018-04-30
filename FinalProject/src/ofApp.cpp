@@ -2,7 +2,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Game.h"
-#include "ofxTrueTypeFontUC.h"
+//#include "ofxTrueTypeFontUC.h"
 
 using namespace pong;
 
@@ -15,6 +15,7 @@ Game mainGame = Game(game_play1, game_play2, game_mainBall);
 void ofApp::setup(){
     ofSetWindowTitle("PONG");
     current_state = PLAYER_SETUP;
+    //myFont.loadFont("GamePlay.ttf", 64, true, true);
 }
 
 //--------------------------------------------------------------
@@ -65,7 +66,7 @@ void ofApp::draw(){
         ofDrawBitmapString("Player 2 Score: " + std::to_string(mainGame.get_p2_score()), 555, 450);
     }
     else if (current_state == PLAYER_SETUP) {
-        ofDrawBitmapString("Press '1' or '2' to choose gamemode!", 545, 390);
+        //myFont.drawString("Press '1' or '2' to choose gamemode!", 545, 390);
     }
     else if (current_state == COLOR_SETUP) {
         ofDrawBitmapString("Choose a color scheme!", 545, 390);
