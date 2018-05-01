@@ -9,3 +9,12 @@ Successfully created new Game object.  Game now runs two player Pong.  Need to m
 
 **Saturday, April 28th**
 Added a start screen where user can choose between one or two players.  Also made game get increasingly difficult as each round progresses.  Game also keeps track of the scores and shows it at the end of each round.  Need to add custom fonts next.
+
+**Sunday, April 29th**
+Created 4 different color schemes for the user to choose from during a setup screen.  The app now has a player setup and a color theme setup.  Themes include Classic, Light, Neon, and Pink.
+
+**Monday, April 30th (Noon)**
+Installed [ofxTrueTypeFontUC](https://github.com/hironishihara/ofxTrueTypeFontUC) library which provides an extension of the default ofTrueTypeFont library.  Created custom fonts using the Gameplay.ttf font and used those to draw all the text in the entire application.
+
+**Monday, April 30th (Evening)**
+Created custom images and text in Adobe Photoshop and imported these into the application using the ofImage library.  These consist of the title text, player selection icons, and color scheme icons.
