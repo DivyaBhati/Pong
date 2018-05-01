@@ -24,6 +24,7 @@ void ofApp::setup(){
     lightLogo.load("image4.png");
     onePlayer.load("1player.png");
     twoPlayer.load("2player.png");
+    gameLogo.load("Gamelogo.png");
 }
 
 //--------------------------------------------------------------
@@ -87,6 +88,7 @@ void ofApp::draw(){
         myFont.drawString("2", 900, 650);
         onePlayer.draw(245, 430, 250, 125);
         twoPlayer.draw(790, 430, 250, 125);
+        gameLogo.draw(340, 40, 600, 240);
     }
     else if (current_state == COLOR_SETUP) {
         myFont.drawString("Choose a color scheme:", 250, 160);

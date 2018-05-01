@@ -61,7 +61,7 @@ void ofApp::drawLight(Paddle player1, Paddle player2, Ball gameBall, int score1,
     ofSetColor(193, 255, 155);
     ofDrawBox(player2.get_xpos(), player2.get_ypos(), 0, player2.get_width(), player2.get_height(), 0);
     myFont.drawString(std::to_string(score2), 685, 80);
-    ofSetColor(171, 135, 255);
+    ofSetColor(141, 105, 255);
     ofDrawBox(gameBall.get_xpos(), gameBall.get_ypos(), 0, gameBall.get_radius(), gameBall.get_radius(), 0);
 };
 

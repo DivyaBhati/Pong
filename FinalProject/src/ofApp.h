@@ -41,6 +41,7 @@ class ofApp : public ofBaseApp{
     ofImage pinkLogo;
     ofImage onePlayer;
     ofImage twoPlayer;
+    ofImage gameLogo;
     
         void setup();
         void update();
