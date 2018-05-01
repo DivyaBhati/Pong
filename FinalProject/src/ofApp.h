@@ -35,6 +35,12 @@ class ofApp : public ofBaseApp{
         ofxTrueTypeFontUC infoFont;
         ofxTrueTypeFontUC largeFont;
 
+    ofImage classicLogo;
+    ofImage lightLogo;
+    ofImage neonLogo;
+    ofImage pinkLogo;
+    ofImage onePlayer;
+    ofImage twoPlayer;
     
         void setup();
         void update();

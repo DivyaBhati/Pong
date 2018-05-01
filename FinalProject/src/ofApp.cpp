@@ -18,6 +18,12 @@ void ofApp::setup(){
     myFont.loadFont("GamePlay.ttf", 36, true, true);
     infoFont.loadFont("GamePlay.ttf", 24, true, true);
     largeFont.loadFont("GamePlay.ttf", 48, true, true);
+    classicLogo.load("image1.png");
+    neonLogo.load("image2.png");
+    pinkLogo.load("image3.png");
+    lightLogo.load("image4.png");
+    onePlayer.load("1player.png");
+    twoPlayer.load("2player.png");
 }
 
 //--------------------------------------------------------------
@@ -79,17 +85,23 @@ void ofApp::draw(){
         myFont.drawString("Choose the number of players:", 130, 360);
         myFont.drawString("1", 350, 650);
         myFont.drawString("2", 900, 650);
+        onePlayer.draw(245, 430, 250, 125);
+        twoPlayer.draw(790, 430, 250, 125);
     }
     else if (current_state == COLOR_SETUP) {
         myFont.drawString("Choose a color scheme:", 250, 160);
-        myFont.drawString("1", 160, 650);
-        myFont.drawString("2", 460, 650);
+        myFont.drawString("1", 159, 650);
+        myFont.drawString("2", 463, 650);
         myFont.drawString("3", 760, 650);
-        myFont.drawString("4", 1060, 650);
+        myFont.drawString("4", 1059, 650);
         infoFont.drawString("Classic", 93, 350);
         infoFont.drawString("Light", 430, 350);
         infoFont.drawString("Neon", 730, 350);
         infoFont.drawString("Pink", 1035, 350);
+        classicLogo.draw(119, 410, 100, 100);
+        lightLogo.draw(430, 410, 100, 100);
+        neonLogo.draw(727, 410, 100, 100);
+        pinkLogo.draw(1025, 410, 100, 100);
     }
 }
 
