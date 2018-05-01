@@ -11,6 +11,7 @@
 
 using namespace pong;
 
+//Default constructor
 Ball::Ball() {
     radius = 20;
     xpos = 640;
@@ -19,6 +20,7 @@ Ball::Ball() {
     xvel = -5;
 };
 
+//Getters and setters
 int Ball::get_xpos() {
     return xpos;
 };

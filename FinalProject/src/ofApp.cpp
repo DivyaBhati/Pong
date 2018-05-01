@@ -13,6 +13,8 @@ Game mainGame = Game(game_play1, game_play2, game_mainBall);
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    //Loading all the images and fonts.
     ofSetWindowTitle("PONG");
     current_state = PLAYER_SETUP;
     myFont.loadFont("GamePlay.ttf", 36, true, true);

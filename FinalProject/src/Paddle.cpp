@@ -9,6 +9,7 @@
 
 using namespace pong;
 
+//Default constructor
 Paddle::Paddle() {
     height = 40;
     width = 10;
@@ -16,6 +17,7 @@ Paddle::Paddle() {
     ypos = 300;
 };
 
+//Parameterized constructor
 Paddle::Paddle(int h, int w, int x, int y){
     height = h;
     width = w;
@@ -23,6 +25,7 @@ Paddle::Paddle(int h, int w, int x, int y){
     ypos = y;
 };
 
+//Getters and setters
 int Paddle::get_height() {
     return height;
 };

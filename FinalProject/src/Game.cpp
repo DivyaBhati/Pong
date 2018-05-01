@@ -11,6 +11,7 @@
 
 using namespace pong;
 
+//Parameterized constructor
 Game::Game(Paddle p1, Paddle p2, Ball b) {
     play1 = p1;
     play2 = p2;
@@ -21,6 +22,7 @@ Game::Game(Paddle p1, Paddle p2, Ball b) {
     game_tick = 0;
 };
 
+//Getters and setters
 Paddle Game::get_play1() {
     return play1;
 };
@@ -41,6 +43,17 @@ void Game::set_game_over(bool newstate) {
     game_over = newstate;
 };
 
+int Game::get_p1_score() {
+    return p1_score;
+};
+
+int Game::get_p2_score() {
+    return p2_score;
+};
+
+/*
+ Restart the game and randomize the x and y velocities.
+ */
 void Game::restart() {
     mainBall.set_xpos(640);
     mainBall.set_ypos(360);
@@ -61,14 +74,9 @@ void Game::restart() {
     }
 };
 
-int Game::get_p1_score() {
-    return p1_score;
-};
-
-int Game::get_p2_score() {
-    return p2_score;
-};
-
+/*
+ Move player 1 paddle.
+ */
 void Game::move_play1(int ychange) {
     play1.set_ypos(play1.get_ypos() + ychange);
     if (play1.get_ypos() < (play1.get_height() / 2)) {
@@ -79,6 +87,9 @@ void Game::move_play1(int ychange) {
     }
 };
 
+/*
+ Move player 2 paddle.
+ */
 void Game::move_play2(int ychange) {
     play2.set_ypos(play2.get_ypos() + ychange);
     if (play2.get_ypos() < (play2.get_height() / 2)) {
@@ -93,9 +104,12 @@ void Game::move_play2(int ychange) {
  Method to move the ball.
  */
 void Game::move_mainBall() {
+    
+    //If game is over, don't move ball
     if (game_over) {
         return;
     }
+    
     mainBall.set_xpos(mainBall.get_xpos() + mainBall.get_xvel());
     mainBall.set_ypos(mainBall.get_ypos() + mainBall.get_yvel());
     if (mainBall.get_ypos() <= 0) {
@@ -107,11 +121,13 @@ void Game::move_mainBall() {
         mainBall.set_yvel(0 - mainBall.get_yvel());
     }
     
+    //Creating local variables to reduce lines of code
     int topy1 = play1.get_ypos() - (play1.get_height() / 2);
     int bottomy1 = play1.get_ypos() + (play1.get_height() / 2);
     int topy2 = play2.get_ypos() - (play2.get_height() / 2);
     int bottomy2 = play2.get_ypos() + (play2.get_height() / 2);
     
+    //Logic for bouncing the ball off the paddles.
     if (mainBall.get_xpos() <= 60) {
         if (mainBall.get_ypos() <= bottomy1 && mainBall.get_ypos() >= topy1) {
             mainBall.set_xpos(60);
@@ -138,6 +154,8 @@ void Game::move_mainBall() {
             game_tick++;
         }
     }
+    
+    //Logic to see if ball goes off the screen.
     if (mainBall.get_xpos() <= 0) {
         p2_score += 1;
         game_over = true;
